@@ -28,3 +28,15 @@ var Test = "David";
 console.log(test)
 console.log(Test)
 */
+
+
+process.stdin.on('data', data =>{
+    process.stdout.write(`\n\n ${data.toString().trim()} \n\n`)
+    process.exit();
+})
+
+
+// process.stdin.on('exit', data =>{
+//     console.log("Exit")
+//     process.stdout.write(`\n\n ${Test1} \n\n`)
+// })
