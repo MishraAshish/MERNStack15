@@ -10,11 +10,11 @@ console.log(name(5))
 console.log(name()) //NaN - Not a number
 
 //1. Named functions - a function definition with name is termed as named function
-function PrintData(param) {
+function PrintData(param) {  
     return param*param
 }
 
-//2. IIFE - Immediately Invocable function expression
+//2. IIFE - Immediately Invocable function expression 
 (function IIFE_Example(sessionName, sessionID) {
     console.log("IIFE session name - "+ sessionName +" "+ sessionID);
 })("MERNSTack", 5)
@@ -35,11 +35,28 @@ console.log(funcExpression("Simplified Function Expression!!!"))
 function Area_const(length, breadth) {
     this.length = length,
     this.breadth = breadth,
-    this.rectangleArea = function () {
-        return this.length*this.breadth
+    this.rectangleArea = function (height) {
+        if (height) {
+            return this.length*this.breadth*height
+        } else {
+            return this.length*this.breadth    
+        }       
     }
 }
 
 var areaObj = new Area_const(9,8) //function as a class
 
 console.log("Are of rectangle " +areaObj.rectangleArea())
+console.log("Are of rectangle " +areaObj.rectangleArea(10))
+
+//5. Nested Functions : when one function executed inside other function
+
+        function A(params) {
+            var a = "A"
+            function B(params) {
+                function C(params) 
+                {
+                    var c= "c"
+                }   
+            }   
+        }
