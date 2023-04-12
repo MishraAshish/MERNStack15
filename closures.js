@@ -35,3 +35,6 @@ function Account(acctNum, acctName, acctType) {
 var accObj = Account(12542, "Scotia Bank", "Credit")
 console.log(accObj(true))
 console.log(accObj(false))
+
+
+//write and example of closure usin student function
