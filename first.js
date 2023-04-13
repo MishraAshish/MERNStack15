@@ -1,6 +1,10 @@
 
 //javascript is functional programming language - it behaviour oriented
 
+var literals = require("./literals")
+
+console.log(globalThis.myGlobalValue)
+
 console.log(pi);
 console.log(Rectangle(5,6));
 
