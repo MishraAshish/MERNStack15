@@ -35,3 +35,28 @@ SoftwareEngg.getEmployeeDetail = function () {
 
 console.log(Employee.getEmployeeDetail())
 console.log(SoftwareEngg.getEmployeeDetail())
+
+
+//3.  Merging objects
+
+var obj1 = {name : "Tien", age : 29, salary : 250}
+var obj2 = {name : "Garrick", address:"New City ", skills : "Javascript"}
+var obj3 = {name : "David", session:"MERNStack"}
+
+//var obj4 = {obj1, obj2, obj3}
+
+var obj4 = Object.assign(obj1, obj2, obj3)
+console.log(obj4)
+
+//4. Even the empty object will have prototype
+
+var emptyObj = {} //Object.create({})
+console.log(emptyObj.__proto__)
+
+
+//5. if we wish to break the prototype chain
+//you need to pass null in your object create constructor
+
+var nullProtoype =  Object.create(null);
+
+console.log(nullProtoype.__proto__)
