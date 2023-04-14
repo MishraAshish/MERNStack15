@@ -15,10 +15,10 @@ function PrintUserInfo(userId, address) {
 }
 
 //UserObj.PrintUserInfo("25025")//class and object 
-PrintUserInfo("202301");
+// PrintUserInfo("202301");
 
-PrintUserInfo.call(student1,202317041, "Somewhere on earth") //context (this) is now set to student1
-PrintUserInfo.call(student2,22023232, "Somewhere in US") //context (this) is now set to student1
+// PrintUserInfo.call(student1,202317041, "Somewhere on earth") //context (this) is now set to student1
+// PrintUserInfo.call(student2,22023232, "Somewhere in US") //context (this) is now set to student1
 
 
 var BMW = {name : "BMW", hatchback : "Yes", price : "2000", openRoof : "Yes"}
@@ -41,9 +41,42 @@ function GetVehicleInfo(authorised, noOfWheels, crashTest, highSpeed, countryMak
     `)
 }
 
-GetVehicleInfo.call(BMW,"YES", 5, 5, 150, "IND")
-GetVehicleInfo.apply(BMW,["YES", 5, 5, 150, "IND"])
+// GetVehicleInfo.call(BMW,"YES", 5, 5, 150, "IND")
+
+// GetVehicleInfo.apply(BMW,["YES", 5, 5, 150, "IND"])
 
 
 //Print Account (Bank Account) information using call and apply and 
 //try to see how we get these functions executed immediatly
+
+
+console.log("SetTimeout Start")
+// setTimeout(function (params) {
+//     console.log("SetTimeout")
+// }, 2000);
+
+var userInfo = {
+    UserName : "Alex",
+    Session : "JS",
+    GetUserInfo : function () {
+        console.log(` 
+            User Name ${this.UserName} 
+            Session ${this.Session}`)
+
+        var that = this; //resolving the context using copy of this
+
+        setTimeout(function () {
+            // console.log(this)
+            
+            // console.log(` 
+            // User Name ${that.UserName} 
+            // Session ${that.Session}`)
+
+            console.log(` 
+            User Name ${this.UserName} 
+            Session ${this.Session}`)
+        }.bind(this), 2000); //bind helps resolving the context in delay manner
+    }
+}
+
+userInfo.GetUserInfo();
