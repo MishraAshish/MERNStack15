@@ -7,7 +7,7 @@
 //Q3. Create a function with name showUserInfo, this function expects three params, firstname, lastname and age
 //  print all the details in the given function
 
-//Q4. Create a function with name and pass three parameters and return the sum of all the three numbers
+//Q4. Create a function with name "add" and pass three parameters and return the sum of all the three numbers
 // below out puts needs to be monitored - add(2,3,4), add(2), add(2.3,3), add("first", 2, "three")
 // analyse the outputs we got and try explaining the reasons behind
 
