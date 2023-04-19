@@ -15,4 +15,4 @@
 
 //Q6. Print the topics you remember so far exporting it from one file an printing in another
 
-//Q7. Example to callback function and nested function
+//Q7. Example to callback function and nested function - each
