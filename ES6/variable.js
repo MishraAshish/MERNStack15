@@ -69,18 +69,18 @@ console.log(Student.Name)
 
 //5. var is functional scope and let is block scope example
 
-for (var index = 0; index < 5; index++) {
-    console.log(index)
-    setTimeout(function () {
-        console.log("Index Value - "+ index) //0,1,2,3,4
-    }, 1000);
-}
+// for (var index = 0; index < 5; index++) {
+//     console.log(index)
+//     setTimeout(function () {
+//         console.log("Index Value - "+ index) //0,1,2,3,4
+//     }, 1000);
+// }
 
-console.log(index); //5
+// console.log(index); //5
 
 for (var index = 0; index < 5; index++) {
-    //console.log(index)
     (function IIFE(params){ //using iife
+        console.log(params)
         setTimeout(function () {
             console.log("Index Value - "+ params) //0,1,2,3,4
         }, 1000);    
@@ -88,10 +88,16 @@ for (var index = 0; index < 5; index++) {
 }
 
 
-for (let indexLet = 0; indexLet < 5; indexLet++) {
-    setTimeout(function () {
-        console.log("Index Value - "+ indexLet) //0,1,2,3,4
-    }, 1000);    
-}
+// for (let indexLet = 0; indexLet < 5; indexLet++) {
+//     setTimeout(function () {
+//         console.log("Index Value - "+ indexLet) //0,1,2,3,4
+//     }, 1000);    
+// }
 
 //console.log(indexLet)
+//0,1,2 - as key
+["one","two","three"]
+
+let userList = [{name : "Test"}, {name : "Test"}]
+
+let user = {name : "Test", age : 25, session : "MERNStack"}
