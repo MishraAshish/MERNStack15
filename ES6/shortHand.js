@@ -20,4 +20,4 @@ console.log("Animal Sounds are represented as - ", animalSound);
 console.log("Animal Sounds are represented as - Legacy Way " + JSON.stringify(animalSound6));
 
 
-module.exports = animalSound6;
+module.exports = {animalSound, animalSound6};
