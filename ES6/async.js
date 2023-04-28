@@ -12,12 +12,20 @@
 // - async2 -> thread2 -> main/stack
 // - async3 -> thread3 -> main/stack
 
-function resolveAfter2Seconds() {
+function resolveAfter2Seconds(studentObj) {
     return new Promise((resolve,reject) => {
+            // setTimeout(() => {
+            //     resolve({
+            //         "statuscode" : 200,
+            //         "statusmsg" :'resolved',
+            //         "student" : studentObj
+            //         });
+            // }, 2000);
+
             setTimeout(() => {
-                resolve({
-                    "statuscode" : 200,
-                    "statusmsg" :'resolved'
+                reject({
+                    "statuscode" : 400,
+                    "statusmsg" :'rejected'
                     });
             }, 2000);
     });
@@ -30,7 +38,7 @@ console.log("async Execution starts");
 async function asyncCall() { 
     console.log("Before await");
 
-    await resolveAfter2Seconds()
+    await resolveAfter2Seconds(employee)
           .then((data)=>{ console.log("data ", data) })
           .catch((err)=>{ console.log("err ", err) })
 
@@ -41,7 +49,6 @@ async function asyncCall() {
           .catch((err)=>{ console.log("err ", err) })
 
     console.log("Async call 2 happend in separate thread!!!")
-
 }
 
 console.log("Before we initiate async call!!");
