@@ -1,1 +1,3 @@
-{"name":"Sohail","age":20,"city":"California","session":"MernStack"}
+[{"name":"Sohail","age":20,"city":"California","session":"MernStack"},
+
+{"acronym":"MernStack","M":"Mongo","E":"Express","R":"React", "N":"NodeJS"}]
