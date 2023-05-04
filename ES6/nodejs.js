@@ -23,8 +23,25 @@
 //backend is termed as API or services and responds with data (json) over RESTFul/https channels
 //fronted is single page, contains logic to generate UI on the fly with the help of server data
 
+//REST => Representational State Transfer Protocol
+//API => Application Programming Interface
 
-//executes the node module - Boubacar
-//Tool to run js - Alex
-//scripting language works for html - Tien
-//executing js code - Sohail
+//REST Specifications =>
+//Unique End Point = https://google.map.us/state/locations
+//http/s => hyper text type protocol and is stateless
+//representational information, html5 => hyper text markup language
+
+//one api should do one job well
+//User - API -should be able to do CRUD operations
+// Repective HTTP methods as below --
+
+//Create - POST
+//Update - PUT/PATCH
+//Delete - Delete
+//GetUser - Get
+//GetUserByID - Get/ID
+
+
+//Request <==> Response (handshake)
+
+
