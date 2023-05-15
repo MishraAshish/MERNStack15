@@ -1,8 +1,14 @@
 import React, { Component, PureComponent, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
+import "./app.css";
+
+
 import Home from "./Common/HomeComponent";
-import Header, {Header2} from "./Common/HeaderComponent";
+import Header from "./Common/HeaderComponent";
 import Footer from "./Common/FooterComponent";
 import { ChildComp } from "./Common/ChildComponent";
+import About from "./Common/AboutComponent";
+import NotFound from "./Common/NotFoundPage";
 
 export default class Application extends Component {
     constructor(props){ //props is read only object is used to share info from one comp to another
@@ -15,16 +21,21 @@ export default class Application extends Component {
 
     render(){
         return(
-            <>
+            <Router>
                 <Header />
                 
-                <Home user={this.User} />
-
-                <Footer age={this.User.Age}>
-                    <ChildComp/>
-                    <input type="text" value={"This is input element"}></input>
-                </Footer>
-            </>
+                <Routes>
+                    {/* <Route path="/" element={ this.User == "Tien" ? 
+                                <Home user={this.User}/> : 
+                                <Redirect to="/user"/>}/> */}
+                    <Route path="/home" element={<Home user={this.User}/>}/>
+                    <Route path="/about" element={<About />}/>
+                    <Route path="/about/:id" element={<About />}/>
+                    <Route path="*" element={<NotFound />}/>
+                </Routes>
+                
+                <Footer />
+            </Router>
         )
     }
 }

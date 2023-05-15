@@ -7,14 +7,16 @@ let Footer = (props)=>{
     let age = props.age;//read only
 
     return(
-        <>
-            <h1>This is footer Component</h1>
-            <b>Passed From Application Component {age}</b>
-            <h3> Below are the other properties </h3>
-            {props.children[0]}
-            {props.children[1]}
-        </>
-    )
+            <div className="footer">
+                © Copyright 2023 All rights reserved. &nbsp;|&nbsp; <a href="https://www.synergisticit.com/" target="_blank">SynergisticIT</a> &nbsp;|&nbsp; <a href="http://www.synergisticit.com/sitemap.xml" target="_blank">Sitemap</a>
+            </div>
+           )
 }
 
 export default Footer;
+
+{/* <h1>This is footer Component</h1>
+            <b>Passed From Application Component {age}</b>
+            <h3> Below are the other properties </h3> */}
+            {/* {props.children[0]}
+            {props.children[1]} */}
