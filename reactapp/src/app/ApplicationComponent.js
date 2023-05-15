@@ -1,5 +1,5 @@
 import React, { Component, PureComponent, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./app.css";
 
 
@@ -25,9 +25,7 @@ export default class Application extends Component {
                 <Header />
                 
                 <Routes>
-                    {/* <Route path="/" element={ this.User == "Tien" ? 
-                                <Home user={this.User}/> : 
-                                <Redirect to="/user"/>}/> */}
+                    <Route path="/" element={<Navigate replace to={"/user"} />}/>
                     <Route path="/home" element={<Home user={this.User}/>}/>
                     <Route path="/about" element={<About />}/>
                     <Route path="/about/:id" element={<About />}/>
