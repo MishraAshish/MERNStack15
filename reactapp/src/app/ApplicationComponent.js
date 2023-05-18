@@ -26,7 +26,7 @@ export default class Application extends Component {
                 
                 <Routes>
                     <Route path="/" element={<Navigate replace to={"/user"} />}/>
-                    <Route path="/home" element={<Home user={this.User}/>}/>
+                    <Route path="/home" element={<Home user={this.User} userName={"Boubacar"}/>}/>
                     <Route path="/about" element={<About />}/>
                     <Route path="/about/:id" element={<About />}/>
                     <Route path="*" element={<NotFound />}/>

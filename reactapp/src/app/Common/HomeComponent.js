@@ -1,4 +1,5 @@
 import React, {Component, PureComponent, Ref} from "react";
+import PropTypes from "prop-types";
 import { ChildComp } from "./ChildComponent";
 
 
@@ -9,6 +10,7 @@ export default class Home extends PureComponent {
         super(props);
         this.User = props.user;
 
+        this.userName = props.userName;
         //we can write state object to create new virtual dom
         this.state = {
             UserName : props.user.Name,
@@ -74,7 +76,7 @@ export default class Home extends PureComponent {
         console.log("Component Did Mount is called")
         
         setTimeout(() => {
-            this.UserAddress.current.focus()
+            this.UserAddress.current.focus() //sets the foucus to this textbox
             this.UserAddress.current.value = "This is my new address"    
         }, 5000);
     }
@@ -176,8 +178,21 @@ export default class Home extends PureComponent {
                     <input type="submit" value="Submit" />
                 </form>
                 <h2>{this.state.Address}</h2>
+                <h3>UserName : {this.userName}</h3>
                 <h2>{this.state.Session}</h2>
             </>
         )
     }
+}
+
+
+// Home.defaultProps = {
+//     user : {
+//         Name : "Sohail Default",
+//         Age : 18
+//     }
+// }
+
+Home.propTypes = {
+    userName : PropTypes.string.isRequired 
 }
