@@ -1,14 +1,17 @@
 import React from "react";
 
-export let ChildComp = ({childData})=>{
+export let ChildComp = ({childData, childEvent})=>{
 
     return(
         <>
             <h1>This is Child Component Component</h1>
             <b>Passed From Application Component {childData}</b>
+            <button onClick={()=>childEvent("Child Component is able to pass data to parent!!!")}>Send To Parent</button>
         </>
     )
 }
+
+//Que : create a component with your name and pass information from that component to Home component
 
 //class uses class keyword and inherits from Component or PureComponent base classes
 //functional component is just a function which returns V-Dom

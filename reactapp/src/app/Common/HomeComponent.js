@@ -1,4 +1,4 @@
-import React, {Component, PureComponent} from "react";
+import React, {Component, PureComponent, Ref} from "react";
 import { ChildComp } from "./ChildComponent";
 
 
@@ -13,7 +13,10 @@ export default class Home extends PureComponent {
         this.state = {
             UserName : props.user.Name,
             UserAge : props.user.Age,
-            Timer : 1
+            Timer : 1,
+            ChildInfo : "Parent Is First Component!!",
+            Address : "Somewhere on earth",
+            Session : "Awsome React",
         }
 
         //state : is mutable and upon change of state a new v-dom gets created which will eventually render on browser
@@ -22,6 +25,11 @@ export default class Home extends PureComponent {
         this.incrementTimer();
 
         //UI is not ready we should not access UI/HTML or also not make any state changes or server call
+
+        //although it is recommended to not directly access the DOM but by using ref htmls we can access and 
+        //manipulate them directly
+        this.UserAddress = React.createRef(); //reference that can be used to link html in react
+        this.SessionInfo = React.createRef();
     }
 
     incrementAge = ()=>{
@@ -64,6 +72,11 @@ export default class Home extends PureComponent {
     ///view or ui is ready, we can access the html(if required), and do state changes here
     componentDidMount(){
         console.log("Component Did Mount is called")
+        
+        setTimeout(() => {
+            this.UserAddress.current.focus()
+            this.UserAddress.current.value = "This is my new address"    
+        }, 5000);
     }
 
     //address - 5, product - 20, user - 10, cart - 13 => 50 states
@@ -103,6 +116,26 @@ export default class Home extends PureComponent {
         clearInterval(this.interval);
     }
 
+    getChildData = (childInfo)=>{
+        alert("child Info " + childInfo)
+        this.setState({
+            ChildInfo : childInfo
+        })
+    }
+
+    //supporting uncontrolled component rendering
+    formSubmit = (evt)=>{
+        let address = this.UserAddress.current.value;
+        let session = this.SessionInfo.current.value
+
+        this.setState({
+            Address : address,
+            Session : session
+        })
+
+        evt.preventDefault();
+    }
+
     render(){
         console.log("Home Component Is rendered")
         return(
@@ -119,9 +152,31 @@ export default class Home extends PureComponent {
                             value={"Increment Age"}></input>
 
                 <input type="text" value={this.state.UserName} 
-                        placeholder="Please Type Your Name" onChange={this.updateNameHandler}></input>
+                        placeholder="Please Type Your Name" onChange={this.updateNameHandler}
+                        ></input>
+                <hr/>
+                <h2>{this.state.ChildInfo}</h2>
+                <ChildComp childData={"Grand Child of Application component"} childEvent={this.getChildData}/>
+
+                <hr/>
                 
-                <ChildComp childData={"Grand Child of Application component"}/>
+                {/* uncontrolled component */}
+                <form action="localhost:9000/api/user/save" onSubmit={this.formSubmit}>
+                    <label>
+                        Address:
+                    <input type={"text"} ref={this.UserAddress} className={"address"} id={"address"} 
+                            placeholder="Please add user address!!!" maxLength={25}></input>
+                    </label>
+
+                    <label>
+                        Session:
+                    <input type={"text"} ref={this.SessionInfo} placeholder="Please add session details!!!" maxLength={25}></input>
+                    </label>
+
+                    <input type="submit" value="Submit" />
+                </form>
+                <h2>{this.state.Address}</h2>
+                <h2>{this.state.Session}</h2>
             </>
         )
     }
