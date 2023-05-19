@@ -1,8 +1,14 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";//hoooks for navigations
+import { connect, useSelector } from "react-redux";
 
 let Header = (props)=>{
-    let userName = "MERNStack Trainee";
+
+    //using connect and mapStateToProps
+    let userName = props.User.UserName; //it is available as props as we are returning from mapSateToProps
+
+    //by using useSelector hook
+    let password = useSelector((state)=>state.userReducer.User.Password) //it is mapping store as props
 
     let goAboutHook = useNavigate();
 
@@ -15,6 +21,7 @@ let Header = (props)=>{
         <>
              Hi <b>{userName +", "}</b> Welcome to SynergisticIT Shopping Cart 
             {userName == "" ?<b> Please Login to see other features</b>:""}
+            <h2>Password is : {password}</h2>
             <div>
                 <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink> 
                 <NavLink to="/about" className="button" activeclassname="success" >About </NavLink>
@@ -24,7 +31,23 @@ let Header = (props)=>{
     )
 }
 
-export default Header;
+//to make a component subscriber it implements - mapStateToProps
+let mapStateToProps = (state)=>{
+    return {
+        User : state.userReducer.User,
+        //Product : state.productReducer.ProductList
+    }
+}
+
+//to make a component publisher it implements - mapDispatchToProps
+// let mapDispatchToProps = (dispatch)=>{
+//     return {
+//         User : state.userReducer.User
+//     }
+// }
+
+
+export default connect(mapStateToProps, null)(Header);
 
 // export let Header2 = (props)=>{
 //     return(
