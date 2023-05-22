@@ -75,10 +75,10 @@ export default class Home extends PureComponent {
     componentDidMount(){
         console.log("Component Did Mount is called")
         
-        setTimeout(() => {
-            this.UserAddress.current.focus() //sets the foucus to this textbox
-            this.UserAddress.current.value = "This is my new address"    
-        }, 5000);
+        // setTimeout(() => {
+        //     this.UserAddress.current.focus() //sets the foucus to this textbox
+        //     this.UserAddress.current.value = "This is my new address"    
+        // }, 5000);
     }
 
     //address - 5, product - 20, user - 10, cart - 13 => 50 states
@@ -141,46 +141,62 @@ export default class Home extends PureComponent {
     render(){
         console.log("Home Component Is rendered")
         return(
-            <>
-                <h3><b><i> This is Home Component </i></b></h3>
-                <h4><b>Props Values : </b> {this.User.Age} {this.User.Name}</h4>
-                <h1>{"Timer " + this.state.Timer}</h1>
-                <div>
-                    <b>State Values</b>    
-                    <b>{this.state.UserAge }</b>
-                </div>
-                <b>{this.state.UserName }</b>
-                    <input type="button" className="button" onClick={this.incrementAge} 
-                            value={"Increment Age"}></input>
+            <div className={"loadimage form"} >
+                <h1>{this.state.title}</h1>
+                <b className="feature">{"Product Feature's :"}</b>
+                <ul>                     
+                    <li>Sign up new users</li>
+                    <li>Login existing users.</li>                
+                    <li>Allow user's to add to cart.</li>
+                    <li>Save the user's cart.</li>
+                    <li>Checkout and pay for items.</li>
+                    <li>Allow users to cancel the order.</li>
+                    <li>Allow users to reorder the cart.</li>
+                    <li>Add products/items to create product collection.</li>
+                    <li>Allow users to give ratings to each product.</li>
+                    <li>Have notifications on top right with logout.</li>
+                </ul>
+            </div>    
+            // <>
+            //     <h3><b><i> This is Home Component </i></b></h3>
+            //     <h4><b>Props Values : </b> {this.User.Age} {this.User.Name}</h4>
+            //     <h1>{"Timer " + this.state.Timer}</h1>
+            //     <div>
+            //         <b>State Values</b>    
+            //         <b>{this.state.UserAge }</b>
+            //     </div>
+            //     <b>{this.state.UserName }</b>
+            //         <input type="button" className="button" onClick={this.incrementAge} 
+            //                 value={"Increment Age"}></input>
 
-                <input type="text" value={this.state.UserName} 
-                        placeholder="Please Type Your Name" onChange={this.updateNameHandler}
-                        ></input>
-                <hr/>
-                <h2>{this.state.ChildInfo}</h2>
-                <ChildComp childData={"Grand Child of Application component"} childEvent={this.getChildData}/>
+            //     <input type="text" value={this.state.UserName} 
+            //             placeholder="Please Type Your Name" onChange={this.updateNameHandler}
+            //             ></input>
+            //     <hr/>
+            //     <h2>{this.state.ChildInfo}</h2>
+            //     <ChildComp childData={"Grand Child of Application component"} childEvent={this.getChildData}/>
 
-                <hr/>
+            //     <hr/>
                 
-                {/* uncontrolled component */}
-                <form action="localhost:9000/api/user/save" onSubmit={this.formSubmit}>
-                    <label>
-                        Address:
-                    <input type={"text"} ref={this.UserAddress} className={"address"} id={"address"} 
-                            placeholder="Please add user address!!!" maxLength={25}></input>
-                    </label>
+            //     {/* uncontrolled component */}
+            //     <form action="localhost:9000/api/user/save" onSubmit={this.formSubmit}>
+            //         <label>
+            //             Address:
+            //         <input type={"text"} ref={this.UserAddress} className={"address"} id={"address"} 
+            //                 placeholder="Please add user address!!!" maxLength={25}></input>
+            //         </label>
 
-                    <label>
-                        Session:
-                    <input type={"text"} ref={this.SessionInfo} placeholder="Please add session details!!!" maxLength={25}></input>
-                    </label>
+            //         <label>
+            //             Session:
+            //         <input type={"text"} ref={this.SessionInfo} placeholder="Please add session details!!!" maxLength={25}></input>
+            //         </label>
 
-                    <input type="submit" value="Submit" />
-                </form>
-                <h2>{this.state.Address}</h2>
-                <h3>UserName : {this.userName}</h3>
-                <h2>{this.state.Session}</h2>
-            </>
+            //         <input type="submit" value="Submit" />
+            //     </form>
+            //     <h2>{this.state.Address}</h2>
+            //     <h3>UserName : {this.userName}</h3>
+            //     <h2>{this.state.Session}</h2>
+            // </>
         )
     }
 }

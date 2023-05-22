@@ -2,14 +2,17 @@ import * as actionTypes from "../actionTypes";
 
 const initialState = {
     User : { 
-        UserName : "Alex. Kim",
-        Password : "Garrick",
-        Street : "Wall Streets",
-        Mobile : 0
+        userName : "Garrick",
+        password : "Sohail",
+        street : "Wall Streets",
+        mobile : 0
     }
 }
 
 const userReducer = (state=initialState, action)=>{
+
+    console.log("We are in user reducer with action payload - ", action.payload)
+
     switch (action.type) {
 
         case actionTypes.AddUserToStore:

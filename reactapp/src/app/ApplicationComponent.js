@@ -9,6 +9,9 @@ import Footer from "./Common/FooterComponent";
 import { ChildComp } from "./Common/ChildComponent";
 import About from "./Common/AboutComponent";
 import NotFound from "./Common/NotFoundPage";
+//import User from "./ApplicationComponent/User/UserComponent";
+import User from "./ApplicationComponent/User/UserContainer";
+
 
 export default class Application extends Component {
     constructor(props){ //props is read only object is used to share info from one comp to another
@@ -27,6 +30,7 @@ export default class Application extends Component {
                 <Routes>
                     <Route path="/" element={<Navigate replace to={"/user"} />}/>
                     <Route path="/home" element={<Home user={this.User} userName={"Boubacar"}/>}/>
+                    <Route path="/user" element={<User/>} />
                     <Route path="/about" element={<About />}/>
                     <Route path="/about/:id" element={<About />}/>
                     <Route path="*" element={<NotFound />}/>
