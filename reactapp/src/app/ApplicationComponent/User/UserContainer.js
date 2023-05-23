@@ -1,4 +1,4 @@
-import { AddUserToStoreAction } from "../../State/UserState/userActions";
+import { AddUserToStoreAction, saveUserToDB } from "../../State/UserState/userActions";
 import User from "./UserComponent";
 import { connect } from "react-redux";
 
@@ -14,10 +14,13 @@ let mapStateToProps = (state)=>{ //state - is store with all reducers
 }
 
 //to make a component publisher it implements - mapDispatchToProps
-let mapDispatchToProps = (dispatch)=>{
+let mapDispatchToProps = (dispatch)=>{//dispatch is used to take action from component to store
     return {
-        addUser : (newuser)=>{
+        addUser : (newuser)=>{//this.state - from UserComponent
             dispatch(AddUserToStoreAction(newuser))
+        },
+        signInUpUser : (newuser)=>{//this.state - from UserComponent
+            dispatch(saveUserToDB(newuser))
         }
     }
 }

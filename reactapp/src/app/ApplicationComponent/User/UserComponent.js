@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { useDispatch } from "react-redux";
+import { AddUserToStoreAction } from "../../State/UserState/userActions";
+
 
 export default class User extends Component{
 
@@ -44,7 +47,11 @@ export default class User extends Component{
 
     loginUser = (evt)=>{
 
-        this.props.addUser(this.state);
+        // let dispatchSignInUser = useDispatch()
+        // dispatchSignInUser(AddUserToStoreAction(this.state))
+
+        //this.props.addUser(this.state);//adduser defined in container
+        this.props.signInUpUser(this.state);
         evt.preventDefault();
     }
 

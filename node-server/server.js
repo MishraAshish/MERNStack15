@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()//express application start
+const cors = require('cors');//importing for setting cross origin request headers to true
 
 console.log(__dirname) // path till directory where the file is
 console.log(__filename) // complete file path with name
@@ -8,9 +9,17 @@ console.log(__filename) // complete file path with name
 const admin = express(); //new admin application for admin requests
 const adminRouter = require("./routes/adminRoute");
 
+const userApp = express();
+const userRouter = require("./routes/userRouter");
+
+//adding cors as middleware to top level of API so that cors is set to true on all endpoint
+app.use(cors());
+
 //to serve static files from the server we can use static middleware to configure our express application
 app.use('/static', express.static('public'))
 
+//json middle-ware for setting request content type to json in body
+app.use(express.json({limit:'2mb', extended:false})); 
 
 app.get('/user', (req, res) => {
     console.log(req.url)
@@ -68,6 +77,9 @@ app.get('/html', (req, res) => {
 //application mounting
 app.use('/admin',admin);
 admin.use("/",adminRouter)
+
+app.use('/user',userApp);
+userApp.use("/",userRouter);//localhost:9000/user/api/signinupuser
 
 // admin.get('/', (req, res)=>{
 //     res.send("Hello Admin System!!!!")
