@@ -11,7 +11,7 @@ import About from "./Common/AboutComponent";
 import NotFound from "./Common/NotFoundPage";
 //import User from "./ApplicationComponent/User/UserComponent";
 import User from "./ApplicationComponent/User/UserContainer";
-
+import UserHook from "./ApplicationComponent/User/UserHook";
 
 export default class Application extends Component {
     constructor(props){ //props is read only object is used to share info from one comp to another
@@ -31,6 +31,7 @@ export default class Application extends Component {
                     <Route path="/" element={<Navigate replace to={"/user"} />}/>
                     <Route path="/home" element={<Home user={this.User} userName={"Boubacar"}/>}/>
                     <Route path="/user" element={<User/>} />
+                    <Route path="/userk" element={<UserHook/>} />
                     <Route path="/about" element={<About />}/>
                     <Route path="/about/:id" element={<About />}/>
                     <Route path="*" element={<NotFound />}/>
