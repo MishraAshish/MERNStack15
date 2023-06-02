@@ -21,11 +21,13 @@ let Header = (props)=>{
         <>
              Hi <b>{userName +", "}</b> Welcome to SynergisticIT Shopping Cart 
             {userName == "" ?<b> Please Login to see other features</b>:""}
-             <h2>Password is : {password}</h2>
+             {/* <h2>Password is : {password}</h2> */}
             <div>
                 <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink> 
-                <NavLink to="/user" className="button" activeclassname="success" >User </NavLink> 
-                <NavLink to="/userk" className="button" activeclassname="success" >User Hook </NavLink> 
+                {/* <NavLink to="/user" className="button" activeclassname="success" >User </NavLink>  */}
+                <NavLink to="/userk" className="button" activeclassname="success" >User </NavLink> 
+                <NavLink to="/product" className="button" activeclassname="success" >Product </NavLink> 
+                <NavLink to="/cart" className="button" activeclassname="success" >Cart </NavLink> 
                 <NavLink to="/about" className="button" activeclassname="success" >About </NavLink>
             </div>
             {/* <button onClick={goToAboutClick} >Go To About Page</button> */}

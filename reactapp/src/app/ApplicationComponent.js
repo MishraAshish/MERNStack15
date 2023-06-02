@@ -12,6 +12,9 @@ import NotFound from "./Common/NotFoundPage";
 //import User from "./ApplicationComponent/User/UserComponent";
 import User from "./ApplicationComponent/User/UserContainer";
 import UserHook from "./ApplicationComponent/User/UserHook";
+import ProductComponent from "./ApplicationComponent/Product/ProductComponent";
+import DisplayProduct from "./ApplicationComponent/Product/DisplayProduct";
+import CartComponent from "./ApplicationComponent/Cart/CartComponent";
 
 export default class Application extends Component {
     constructor(props){ //props is read only object is used to share info from one comp to another
@@ -30,7 +33,10 @@ export default class Application extends Component {
                 <Routes>
                     <Route path="/" element={<Navigate replace to={"/user"} />}/>
                     <Route path="/home" element={<Home user={this.User} userName={"Boubacar"}/>}/>
-                    <Route path="/user" element={<User/>} />
+                    {/* <Route path="/user" element={<User/>} /> */}
+                    <Route path="/product" element={<ProductComponent/>} />
+                    <Route path="/cart" element={<CartComponent/>} />
+                    <Route path="/display" element={<DisplayProduct/>} />
                     <Route path="/userk" element={<UserHook/>} />
                     <Route path="/about" element={<About />}/>
                     <Route path="/about/:id" element={<About />}/>

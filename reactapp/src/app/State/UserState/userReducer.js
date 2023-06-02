@@ -2,9 +2,9 @@ import * as actionTypes from "../actionTypes";
 
 const initialState = {
     User : { 
-        userName : "Garrick",
-        password : "Sohail",
-        street : "Wall Streets",
+        userName : "",
+        password : "",
+        street : "",
         mobile : 0
     }
 }

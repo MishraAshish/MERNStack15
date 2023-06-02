@@ -12,6 +12,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import thunk from "redux-thunk"; //is used to pipeline the dispatched objects and give us a feeling of sync execution by being async
 
 import userReducer from "./UserState/userReducer";
+import productReducer from "./ProductState/ProductReducer";
+import cartReducer from "./CartState/CartReducer";
 
 //custom middleware function to log action raised
 const logger = () => (next) => (action) => {
@@ -21,7 +23,9 @@ const logger = () => (next) => (action) => {
 }
 
 const rootReducer = combineReducers({
-    userReducer // userReducer : userReducer - using short hand
+    userReducer, // userReducer : userReducer - using short hand
+    productReducer,
+    cartReducer
 })
 
 //create configure and export the store from this code
