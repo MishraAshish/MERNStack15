@@ -11,7 +11,12 @@ let DisplayProduct = ()=>{
     let dispatchToFetch = useDispatch();
 
     //useEffect is used as componentDidMount hook
-    useEffect(()=>{ dispatchToFetch(fetchProducts()) },[])
+    useEffect(()=>{ dispatchToFetch(fetchProducts())
+        
+        // return ()=>{
+        //     console.log("will work like component will unmount")
+        // }
+     },[])
     console.log("productList ", productList)
 
     return(

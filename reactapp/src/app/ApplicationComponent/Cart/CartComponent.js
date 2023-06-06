@@ -1,11 +1,22 @@
 import React, { useEffect, Fragment } from "react";
 import { useSelector, useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
 import CartItemComponent from "./CartItemComponent";
 import CartSummaryComponent from "./CartSummaryComponent";
+import { saveCartToDb } from "../../State/CartState/CartActions";
 
 let CartComponent = (props)=> {
 
     let cartList = useSelector((state)=>state.cartReducer)
+
+    let user = useSelector((state)=>state.userReducer.User)
+
+    let navigate = useNavigate();
+    let func = function(event) {      
+        
+        navigate('/checkout');
+        event.preventDefault();
+    }
 
     let recalculate = (cartItems)=>{
         let amount = 0, 
@@ -19,6 +30,16 @@ let CartComponent = (props)=> {
         return {
             amount, //ES6 syntactic sugar amount: amount 
             count // if key and values are same name then we can put it this way without ":"
+        }
+    }
+
+    let dispatchCartToDB = useDispatch();
+    let clickToSaveCart = (cartList, userid)=>{
+        if(!userid){
+            alert("Please sign in  before saving the cart!!")
+            navigate('/userk');
+        }else{
+            dispatchCartToDB(saveCartToDb(cartList, userid))
         }
     }
 
@@ -60,6 +81,19 @@ let CartComponent = (props)=> {
                     </table>
 
                     <CartSummaryComponent data={recalculate(cartList)} readOnly={props.readOnly} />
+
+                    {
+                        props.readOnly ? <></> : 
+                            <Fragment>
+                                <button onClick={() => clickToSaveCart(cartList, user._id)} >
+                                        Save Cart
+                                </button>
+                                
+                                <button onClick={func} >
+                                    Go To Checkout
+                                </button>
+                            </Fragment> 
+                    }
                 </Fragment> 
                 : 
                 <b>Cart Is Empty!!! Please add some products.</b>}               

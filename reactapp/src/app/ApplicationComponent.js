@@ -35,7 +35,7 @@ export default class Application extends Component {
                     <Route path="/home" element={<Home user={this.User} userName={"Boubacar"}/>}/>
                     {/* <Route path="/user" element={<User/>} /> */}
                     <Route path="/product" element={<ProductComponent/>} />
-                    <Route path="/cart" element={<CartComponent/>} />
+                    <Route path="/cart" element={<CartComponent />} />
                     <Route path="/display" element={<DisplayProduct/>} />
                     <Route path="/userk" element={<UserHook/>} />
                     <Route path="/about" element={<About />}/>

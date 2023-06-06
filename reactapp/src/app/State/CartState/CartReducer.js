@@ -14,7 +14,7 @@ export default function CartReducer(state = INITIAL_STATE, action)
             let newState = state.filter(item => item._id != action.payload.item._id);
 
             //checking if quantity is present or not, if no then add default quantity to 1 else do nothing 
-            !action.payload.item["qty"] ? action.payload.item["qty"] = 1 : "";
+            //!action.payload.item["qty"] ? action.payload.item["qty"] = 1 : "";
 
             return [...newState, action.payload.item];//creating a new state with new item
         

@@ -1,3 +1,4 @@
+import { getUserCart } from "../CartState/CartActions";
 import * as actionTypes from "../actionTypes";
 import axios from "axios";
 
@@ -25,7 +26,7 @@ export const saveUserToDB = (newuser)=>{
                     //alert(JSON.stringify(signdUser))
                     //sending user to the store
                     dispatch(AddUserToStoreAction(signdUser));//dispatching action with signed user 
-                    //dispatch(getUserCart(signdUser._id))
+                    dispatch(getUserCart(signdUser._id))
                 })
                 .catch((err)=>{
                     console.log("err in login ", err)

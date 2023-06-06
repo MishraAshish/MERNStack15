@@ -15,6 +15,9 @@ const userRouter = require("./routes/userRouter");
 const prodApp = express();
 const prodRouter = require("./routes/productRouter");
 
+const cartApp = express();
+const cartRouter = require("./routes/cartRouter");
+
 //adding cors as middleware to top level of API so that cors is set to true on all endpoint
 app.use(cors());
 
@@ -87,6 +90,8 @@ userApp.use("/",userRouter);//localhost:9000/user/api/signinupuser
 app.use('/product',prodApp)
 prodApp.use("/",prodRouter);
 
+app.use('/cart',cartApp)
+cartApp.use("/",cartRouter);
 
 // admin.get('/', (req, res)=>{
 //     res.send("Hello Admin System!!!!")

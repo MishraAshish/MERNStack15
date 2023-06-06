@@ -6,8 +6,7 @@ let INITIAL_STATE = {
         name : "Product Name",
         price : 1,
         desc : "Product Description",
-        rating : "Product Rating",
-        qty : 1
+        rating : "Product Rating"
     }
 }
 
