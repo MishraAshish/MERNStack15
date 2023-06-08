@@ -1,18 +1,18 @@
-// 30-05-2023 - Create Product and Display Them
+// 08-06-2023 - Practice
 
-// Create a product component using functional component and hooks (try using use state to read default values from reducer)
-// Create a form to allow user to submit Product Details - name, price, desc, rating
-// Create an action method to add the detail to database using a server api
-// Server Side - Create product router and api to save the product using productdatamodel
+// Coupon Page 
+// Create a component with Name - CouponComponent (Functional Component and Use Hooks)
+// On the page add a Button - GenerateCoupon
+// Upon Click Generate a random coupon of - 6 digits (basically a numeric random value)
+// Dispatch this generated coupon using useDispatch
+// Create a Coupon Reducer to have Coupon Value, Use Reducer to update the coupon value (useSelector coupon)
+// Create action to pass coupon to reducer, with type and payload
 
-// 31-05-2023 - Practice
+// Part 2 : 
+// Hide all the links except : Home, User and About for a user not logged-in
+// In Product Component show Save to product section only to a user with name "admin" so that not all users 
+// can insert the products to database 
 
-// Cart Implementation
-// Create New Cart Component using react hooks, functional component
-// Each Item in this component should be added from Product Component 
-// Now each Product should have general fields, like Name, Description, Rating, Price, Category (New Product Document/ Collection)
-// In Product component each item when we click to display details should also have a button "Add To Item" on click should add to New Cart
-// On Cart Component, Button for save to Checkout should save the cart item to database (New Cart Document/ Collection)
 
 // 05-06-2023 - Practice
 
@@ -28,3 +28,28 @@
 // Create a state using useState to show hide (Make Payment Message)
 // Upon Clicking on MakePayment button, hide everything and just show the message - "Thankyou for the payment, your items under process!"
 // Change the header from Checkout Page to Payment Page
+
+
+// 31-05-2023 - Practice
+
+// Cart Implementation
+// Create New Cart Component using react hooks, functional component
+// Each Item in this component should be added from Product Component 
+// Now each Product should have general fields, like Name, Description, Rating, Price, Category (New Product Document/ Collection)
+// In Product component each item when we click to display details should also have a button "Add To Item" on click should add to New Cart
+// On Cart Component, Button for save to Checkout should save the cart item to database (New Cart Document/ Collection)
+
+
+// 30-05-2023 - Create Product and Display Them
+
+// Create a product component using functional component and hooks (try using use state to read default values from reducer)
+// Create a form to allow user to submit Product Details - name, price, desc, rating
+// Create an action method to add the detail to database using a server api
+// Server Side - Create product router and api to save the product using productdatamodel
+
+
+// Hobby - Additional Task
+//1. Create a component with name Hobby, add a textbox to insert hobbyname into it and save it to the database using SaveAPI
+//2. Create an action to save the hobby, can use useractions file and userrouter file for the same
+
+//Fetch the saved hobbies and show them in Login Page so that user can select any hobby and update the user info
