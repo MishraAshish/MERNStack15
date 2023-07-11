@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreactapp=self.webpackChunkreactapp||[]).push([[491],{5491:(e,t,n)=>{n.r(t),n.d(t,{default:()=>a});var r=n(5466);const a=function(e){return r.createElement(r.Fragment,null,r.createElement("h1",null,"The Page you're looking for is still under construction!!!"))}}}]);

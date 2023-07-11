@@ -16,10 +16,10 @@ import productReducer from "./ProductState/ProductReducer";
 import cartReducer from "./CartState/CartReducer";
 
 //custom middleware function to log action raised
-const logger = () => (next) => (action) => {
+const logger = next => action => {
     //currying in javasript where we pass function as input and recieve function as output
     console.log("Logged Action : Store File ", action);
-    return next(action); //move to the actual execution
+    next(action); //move to the actual execution
 }
 
 const rootReducer = combineReducers({
