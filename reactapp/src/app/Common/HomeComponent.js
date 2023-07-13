@@ -1,7 +1,7 @@
 import React, {Component, PureComponent, Ref} from "react";
 import PropTypes from "prop-types";
 import { ChildComp } from "./ChildComponent";
-
+//import video from '../../videos/video.mp4';
 
 //export default class Home extends Component {
 //this will compare all the states and props before calling render method so shouldCompUpdate is not req
@@ -156,6 +156,11 @@ export default class Home extends PureComponent {
                     <li>Allow users to give ratings to each product.</li>
                     <li>Have notifications on top right with logout.</li>
                 </ul>
+
+                {/* <video width="320" height="240" controls autoplay>
+                    <source src={require('../../videos/video.mp4')} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video> */}
             </div>    
             // <>
             //     <h3><b><i> This is Home Component </i></b></h3>

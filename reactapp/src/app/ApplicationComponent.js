@@ -15,6 +15,7 @@ let UserHook = lazy(()=> import("./ApplicationComponent/User/UserHook"));
 let ProductComponent = lazy(()=> import("./ApplicationComponent/Product/ProductComponent"));
 let DisplayProduct = lazy(()=> import("./ApplicationComponent/Product/DisplayProduct"));
 let CartComponent = lazy(()=> import("./ApplicationComponent/Cart/CartComponent"));
+let Hooks = lazy(()=> import("./Hooks/UnderstandingHooks"));
 
 export default class Application extends Component {
     constructor(props){ //props is read only object is used to share info from one comp to another
@@ -32,7 +33,8 @@ export default class Application extends Component {
                     <Header />
                     
                     <Routes>
-                        <Route path="/" element={<Navigate replace to={"/user"} />}/>
+                        {/* <Route path="/" element={<Navigate replace to={"/user"} />}/> */}
+                        <Route path="/" element={<Home user={this.User} userName={"Boubacar"}/>}/>
                         <Route path="/home" element={<Home user={this.User} userName={"Boubacar"}/>}/>
                         {/* <Route path="/user" element={<User/>} /> */}
                         <Route path="/product" element={<ProductComponent/>} />
@@ -40,6 +42,7 @@ export default class Application extends Component {
                         <Route path="/display" element={<DisplayProduct/>} />
                         <Route path="/userk" element={<UserHook/>} />
                         <Route path="/about" element={<About />}/>
+                        <Route path="/hooks" element={<Hooks />}/>
                         <Route path="/about/:id" element={<About />}/>
                         <Route path="*" element={<NotFound />}/>
                     </Routes>
